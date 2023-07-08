@@ -9,29 +9,34 @@ import { useMemo, useState } from "react";
 import { OrderController } from "./order-controller/OrderController";
 import { SafeUser } from "@/types";
 import { OrdersData } from "./orders-data/OrdersData";
+import Container from "./Container";
 
 interface DashboardProps {
   currentUser?: SafeUser | null;
 }
 
 export const Dashboard: React.FC<DashboardProps> = ({ currentUser }) => {
-  const backgroundStyle = {
-    backgroundImage: `url('/images/car-wash-background.jpg')`,
-    width: "100vw",
-    height: "100vh",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    border: "1px solid black",
-  };
-
   return (
-    <div className="p-20 grid grid-cols-4 grid-rows-5 h-full w-full">
-      <Heading
-        title={`Welcome back, ${currentUser?.name}`}
-        subtitle="Now. Cheap."
-      />
-      <OrdersData />
-      <OrderController />
-    </div>
+    <Container>
+      <div
+        className="sm:grid 
+                    sm:grid-cols-4 
+                    sm:gap-5 
+                    sm:grid-rows-5 
+                    h-screen 
+                    w-full 
+                    pt-24
+                    flex
+                    flex-col
+                    "
+      >
+        <Heading
+          title="Car Wash"
+          subtitle={`Welcome back, ${currentUser?.name}`}
+        />
+        <OrdersData />
+        <OrderController />
+      </div>
+    </Container>
   );
 };

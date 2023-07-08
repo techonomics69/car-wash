@@ -5,6 +5,7 @@ import { Dashboard } from "./components/Dashboard";
 import { ListingCard } from "./components/listings/ListingCard";
 import getCurrentUser from "./actions/getCurrentUser";
 import Navbar from "./components/navbar/Navbar";
+import { Sidebar } from "./components/sidebar/Sidebar";
 
 const Home = async () => {
   const currentUser = await getCurrentUser();

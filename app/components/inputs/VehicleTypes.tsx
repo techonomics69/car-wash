@@ -41,7 +41,11 @@ export const VehicleTypes: React.FC<VehicleTypesProps> = ({
     <div
       className="vehicles
                   gap-3
-                  grid grid-cols-2 grid-rows-2"
+                  w-screen
+                  sm:w-full
+                  items-center
+                  justify-center
+                  flex flex-wrap"
     >
       {labels.map((label) => (
         <VehicleBtn

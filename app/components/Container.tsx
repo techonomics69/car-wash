@@ -8,10 +8,12 @@ const Container: React.FC<ContainerProps> = ({ children }) => {
       className="
               max-w-[1720px]
               mx-auto
-              xl:px-20
-              md:px-10
-              sm:px-2
-              px-4
+              ps-4
+              xl:pr-20
+              xl:pl-36
+              md:pr-10
+              md:pl-36
+              sm:pr-2
           "
     >
       {children}

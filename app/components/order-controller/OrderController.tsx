@@ -53,8 +53,6 @@ export const OrderController = () => {
   const onSubmit = (formValues: any) => {
     console.log(formValues);
     const { interior, exterior } = formValues;
-    console.log("🚀 ~ file: AppMenu.tsx:63 ~ onSubmit ~ exterior:", exterior);
-    console.log("🚀 ~ file: AppMenu.tsx:63 ~ onSubmit ~ interior:", interior);
     if (!interior && !exterior) {
       toast.error("Select Interior or Exterior");
     }
@@ -76,48 +74,83 @@ export const OrderController = () => {
 
   return (
     <div
-      className="order-menu 
-                  lg:rows-span-2
-                  lg:col-span-3 row-start-2 bg-green-500 p-4
-                  row-span-full
-                  place-items-center
+      className="order-menu
+                  sm:overflow-hidden
+                  sm:row-span-4
+                  sm:col-span-3 
+                  sm:row-start-2
+                  sm:grid
+                  sm:grid-cols-2
+                  sm:grid-rows-1
+                  overflow-x-scroll overflow-y-hidden snap-x mandatory rounded-xl
+                  h-full
+                  drop-shadow-md	
+                  bg-indigo-50
+                  flex
                   gap-1
                   border 
-                  border-red-500
-                  lg:grid
-                  lg:grid-cols-2
-                  lg:grid-rows-2
                   "
     >
-      <div className="row-span-1 col-span-1 text-white rounded-lg mb-4">
+      <div
+        className="block-one
+                    snap-start
+                    min-w-full
+
+                      sm:col-span-1
+                      sm:w-1/2
+                      h-full
+                      justify-evenly
+                      p-4
+                      gap-3
+                      flex
+                      items-center
+                      flex-col
+                      mb-4
+                      text-white
+                      rounded-lg
+      "
+      >
         <VehicleTypes setCustomValue={setCustomValue} />
+
+        <div
+          className="features 
+          gap-3
+          w-screen
+          sm:w-full
+          items-center
+          justify-center
+          flex flex-wrap
+          "
+        >
+          {features.map((feature) => (
+            <FeatureBtn
+              setCustomValue={setCustomValue}
+              label={feature.name}
+              price={feature.price}
+            />
+          ))}
+        </div>
       </div>
       <div
-        className="features
-                  grid 
-                  row-span-2 
-                  col-span-1 
-                  col-start-1 
-                  grid-cols-2 
-                  grid-rows-2 
-                  gap-3 
-                  mt-10"
+        className="block-two
+                  snap-start
+                      sm:col-start-2
+                      sm:w-full
+                  min-w-full
+                      h-full
+                      p-4
+                      justify-evenly
+                      flex-col
+                      flex
+                      gap-3
+                      relative
+      "
       >
-        {features.map((feature) => (
-          <FeatureBtn
-            setCustomValue={setCustomValue}
-            label={feature.name}
-            price={feature.price}
-          />
-        ))}
-      </div>
-      <div className="col-span-2 col-start-2 row-start-1 w-1/2 m-auto mt-4">
         <ImageUpload
           onChange={(value) => setCustomValue("imageSrc", value)}
           value={imageSrc}
         />
-      </div>
-      <div className="m-auto gap-3 row-start-2 col-start-2 text-center text-white">
+
         <OrderSummary
           totalPrice={totalPrice}
           isDisabled={isDisabled}

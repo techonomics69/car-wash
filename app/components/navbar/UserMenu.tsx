@@ -33,10 +33,9 @@ export const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   }, [currentUser, loginModal, rentModal]);
 
   return (
-    <div className="relative">
+    <div className="relative justify-self-end">
       <div
         className="flex
-                flex-col
                 items-center 
                 cursor-pointer 
                 rounded-full
@@ -44,20 +43,21 @@ export const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 md:px-2
                 p-2
                 gap-3
-                hover:shadow-md
-                border-[1px]
+                text-white
+                font-AvenirHeavy
+                text-3xl
                 transition"
         onClick={toggleOpen}
       >
-        <HiMenu size={38} />
         Car Wash
         <div className="hidden md:block">
-          <Avatar src={currentUser?.image} />
+          <Avatar src={currentUser?.image} size={50} />
         </div>
       </div>
       {isOpen && (
         <div
           className="absolute
+                        rounded-xl
                         shadow-md
                         w-[40vw]
                         md:w-3/4

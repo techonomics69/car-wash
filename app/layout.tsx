@@ -19,7 +19,7 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-slate-200">
+      <body className="bg-slate-300">
         <ClientOnly>
           <ToasterProvider />
           <LoginModal />
